@@ -1,0 +1,23 @@
+.nonfound__container {
+	background-image: url('/assets/img/icon/bg.svg');
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.nonfound__text{
+}
+.nonfound__error {
+	display: flex;
+	justify-content: center;
+	justify-content: center;
+	font-size: 36px;
+	color:#B3B3B3;
+}
+.nonfound__suberror {
+	display:flex;
+	justify-content: center;
+	font-size: 36px;
+	text-transform: uppercase;
+	color: #B3B3B3;
+}

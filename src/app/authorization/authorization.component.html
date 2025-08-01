@@ -1,0 +1,80 @@
+<div class="auth-page">
+  <div class="auth-container">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="bg__container">
+        <div class="title">
+          <img
+            src="assets/img/icon/Outdoor.svg"
+            alt="enter logo"
+            class="logo-title"
+          />
+          <span>ВХОД</span>
+        </div>
+        <div class="form-group">
+          <label for="username">Логин</label>
+          <input
+            type="text"
+            id="username"
+            class="auth-form__input"
+            formControlName="username"
+            autocomplete="username"
+            [class.invalid]="isControlInvalid('username')"
+            [attr.aria-invalid]="isControlInvalid('username')"
+            [attr.aria-describedby]="'username-error'"
+          />
+          <div class="case" *ngIf="loginForm.get('username').invalid">
+            <span
+              class="text-danger"
+              *ngIf="loginForm.get('username').hasError('required')"
+              >Заполните поле логин</span
+            >
+            <span
+              class="text-danger"
+              *ngIf="loginForm.get('username').hasError('cyrillic')"
+              >Логин не должен содержать кириллицу</span
+            >
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="password">Пароль</label>
+          <input
+            type="password"
+            id="password"
+            class="auth-form__input"
+            formControlName="password"
+            autocomplete="current-password"
+            [class.invalid]="isControlInvalid('password')"
+            [attr.aria-invalid]="isControlInvalid('password')"
+            [attr.aria-describedby]="'password-error'"
+          />
+          <div class="case" *ngIf="loginForm.get('password').invalid">
+            <span
+              class="text-danger"
+              *ngIf="loginForm.get('password').hasError('required')"
+              >Пароль обязателен</span
+            >
+            <span
+              class="text-danger"
+              *ngIf="loginForm.get('password').hasError('minlength')"
+              >Введите пароль содержащий от 6 символов</span
+            >
+          </div>
+        </div>
+        <div class="form__button">
+          <button
+            type="submit"
+            class="btn btn-success"
+            [disabled]="loginForm.invalid || isSubmitting"
+          >
+            <ng-container *ngIf="!isSubmitting">Войти</ng-container>
+            <ng-container *ngIf="isSubmitting">Загрузка...</ng-container>
+          </button>
+        </div>
+        <div *ngIf="invalidLogin" class="form__texterror">
+          Неправильный логин или пароль
+        </div>
+      </div>
+      <div class="form__bg"></div>
+    </form>
+  </div>
+</div>

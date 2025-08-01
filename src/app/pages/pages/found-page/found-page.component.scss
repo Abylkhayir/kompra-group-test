@@ -1,0 +1,24 @@
+.found__container {
+  background-image: url("/assets/img/icon/bg.svg");
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.found__text {
+}
+.found__title {
+  display: flex;
+  justify-content: center;
+  justify-content: center;
+  font-size: 36px;
+  color: #b3b3b3;
+}
+.found__subtitle {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  font-size: 36px;
+  text-transform: uppercase;
+  color: #b3b3b3;
+}
